@@ -1,5 +1,6 @@
 #include <iostream>
 #include "IntBinaryTree.h"
+#include <fstream>
 using namespace std;
 
 void dataRead(IntBinaryTree&);
@@ -52,7 +53,24 @@ int main() {
 
 void dataRead(IntBinaryTree &tree)
 {
-    
+    ifstream ifs;
+    string code;
+    bool somethin = true;
+
+    ifs.open("codes.txt");
+    if (ifs)
+    {
+        while (somethin)
+        {
+            if (ifs.eof())
+            {
+                somethin = false;
+                break;
+            }
+            getline(ifs,code);
+            tree.insertNode(code);
+        }
+    }
 }
 
 void addData(IntBinaryTree &tree)
