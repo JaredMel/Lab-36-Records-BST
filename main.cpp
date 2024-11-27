@@ -31,16 +31,16 @@ int main() {
         switch (choice)
         {
         case 1:
-            
+            addData(tree);
             break;
         case 2:
-
+            deleteData(tree);
             break;
         case 3:
-            
+            searchData(tree);
             break;
         case 4:
-            
+            modifyData(tree);
             break;
         default:
             break;
@@ -48,4 +48,48 @@ int main() {
     }
 
     return 0;
+}
+
+void dataRead(IntBinaryTree &tree)
+{
+    
+}
+
+void addData(IntBinaryTree &tree)
+{
+    string data;
+
+    cout << "Type the code you wish to add to the tree:" << endl;
+    getline(cin, data);
+
+    tree.insertNode(data);
+}
+
+void deleteData(IntBinaryTree &tree)
+{
+    string data;
+
+    cout << "Type the code you wish to delete from the tree:" << endl;
+    getline(cin, data);
+
+    tree.remove(data);
+}
+
+void searchData(IntBinaryTree tree)
+{
+    string data;
+    bool ans;
+
+    cout << "Type the code you wish to search for in the tree:" << endl;
+    getline(cin, data);
+
+    ans = tree.searchNode(data);
+    if (ans)
+    {
+        cout << data << " is in the tree" << endl;
+    }
+    else
+    {
+        cout << data << " is not in the tree" << endl;
+    }
 }
